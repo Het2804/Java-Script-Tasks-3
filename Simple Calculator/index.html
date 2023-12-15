@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1 >Simple Calculator</h1>
+
+  <label for="operator"><b>Enter Opreation (+,-,*,/):</b></label>
+  <input type="text" id="operator" ><br><br>
+
+  <label for="num1"><b>Enter a Number:</b></label>
+  <input type="text" id="num1" ><br><br>
+
+  <label for="num2"><b>Enter a Number:</b></label>
+  <input type="text" id="num2" ><br><br>
+
+  <button onclick="calculate()">Calculate</button><br>
+
+  <p id="result">Result:</p>
+
+  <script>
+    function calculate() {
+       
+        var num1 = parseFloat(document.getElementById("num1").value);
+        var operator = document.getElementById("operator").value;
+        var num2 = parseFloat(document.getElementById("num2").value);
+
+       
+        if (isNaN(num1) || isNaN(num2)) {
+            alert("Please enter valid numbers.");
+            return;
+        }
+
+       
+        var result;
+        if (operator === "+") {
+            result = num1 + num2;
+        } else if (operator === "-") {
+            result = num1 - num2;
+        } else if (operator === "*") {
+            result = num1 * num2;
+        } else if (operator === "/") {
+            if (num2 !== 0) {
+                result = num1 / num2;
+            } else {
+                alert("Cannot divide by zero.");
+                return;
+            }
+        } else {
+            alert("Invalid operator.");
+            return;
+        }
+
+        
+        var resultElement = document.getElementById("result");
+        resultElement.textContent = "Result: " + result;
+    }
+</script>
+</body>
+</html>

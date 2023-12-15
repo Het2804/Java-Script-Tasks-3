@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+    
+        
+    
+</head>
+<body style="  
+margin-left: 40%;
+
+background-color: greenyellow;">
+
+    <h1>Multiplication Table</h1>
+
+    <label for="multiplier">Enter a multiplier:</label>
+    <input type="number" id="multiplier" min="1">
+    <button onclick="generateTable()">Generate Table</button>
+
+    <table id="multiplicationTable">
+    </table>
+
+    <script>
+        function generateTable() {
+ 
+            var multiplierInput = document.getElementById("multiplier");
+            var multiplier = parseInt(multiplierInput.value);
+
+      
+            if (isNaN(multiplier) || multiplier < 1) {
+                alert("Please enter a positive integer.");
+                return;
+            }
+
+         
+            var tableContent = "<tr><th></th><th></th></tr>";
+            for (var i = 1; i <= 10; i++) {
+                var product = multiplier * i;
+                tableContent += "<tr><td>" + multiplier + " x " + i + "</td><td>"+"= " + product + "</td></tr>";
+            }
+
+       
+            var tableElement = document.getElementById("multiplicationTable");
+            tableElement.innerHTML = tableContent;
+        }
+    </script>
+
+</body>
+</html>
